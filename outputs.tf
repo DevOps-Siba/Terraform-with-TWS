@@ -1,7 +1,7 @@
-output "arn" {
-  value = aws_instance.testinstance.arn
+output ec2_public_ips {
+    value = aws_instance.my_instance.*.public_ip
 }
 
-output "public_ip" {
-  value = aws_instance.testinstance.public_ip
+output "ec2_private_ips" {
+    value = aws_instance.my_instance.*.private_ip   # * use for find public and private IP for multiple instance count=3
 }
