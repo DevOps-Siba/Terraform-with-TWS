@@ -1,14 +1,18 @@
+# 1. Get the latest Ubuntu 24.04 AMI ID automatically
 data "aws_ami" "os_image" {
-  owners = ["099720109477"]    #EC2-AMI_IDs-filter
   most_recent = true
+  owners      = ["099720109477"] # Official Canonical ID
+
   filter {
     name   = "state"
     values = ["available"]
   }
+
   filter {
     name = "name"
-    values = ["ubuntu/images/hvm-ssd/*amd64*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-noble-24.04-amd64-server-*"]
   }
+
 }
 
 resource "aws_key_pair" "deployer" {
