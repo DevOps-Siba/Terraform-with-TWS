@@ -1,5 +1,5 @@
 data "aws_ami" "os_image" {
-  owners = ["099720109477"]
+  owners = ["099720109477"]    #EC2-AMI_IDs-filter
   most_recent = true
   filter {
     name   = "state"
